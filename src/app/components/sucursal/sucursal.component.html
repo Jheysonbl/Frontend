@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Elegante</title>
+</head>
+<body>
+<form >
+    <div class="container">
+        <h2 style="color: white;">SUCURSAL</h2>
+        <div class="form-group">
+            <label for="codigo">Código (int):</label>
+            <input type="number" id="codigo" name="codigo" [(ngModel)]="nuevaSucursal.codigo" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción (string):</label>
+            <input type="text" id="descripcion" name="descripcion" [(ngModel)]="nuevaSucursal.descripcion" required>
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección (string):</label>
+            <input type="text" id="direccion" name="direccion" [(ngModel)]="nuevaSucursal.direccion" required>
+        </div>
+        <div class="form-group">
+            <label for="identificacion">Identificación (int):</label>
+            <input type="text" id="identificacion" name="identificacion" [(ngModel)]="nuevaSucursal.identificacion" required>
+        </div>
+        <div class="form-group">
+            <label for="codigoMoneda">Código Moneda (int):</label>
+            <select id="codigoMoneda" name="codigoMoneda" [(ngModel)]="nuevaSucursal.codigoMoneda" (change)="actualizarCodigoMoneda($event)" required>
+            </select>
+        </div>
+        <div class="btn-container">
+            <button class="btn btn-success" id="guardar-button" (click)="guardarSucursal()">
+                <i class="fa fa-plus"></i> Agregar
+              </button>            
+              <button class="btn btn-warning" id="btn_editar" (click)="editSucursal()">
+                <i class="fa fa-pencil"></i> Editar
+              </button>
+              <button class="btn btn-danger" id="bnt_delete" (click)="deleteRegistro(nuevaSucursal)">
+                <i class="fa fa-trash"></i> Eliminar
+              </button>
+              <button class="btn btn-secondary" id="cancelar-button" (click)="limpiarCampos()">
+                <i class="fa fa-times"></i> Limpiar
+              </button>
+        </div>        
+    </div>
+</form>
+<div class="table-responsive mx-auto" >
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Dirección</th>
+                <th>Identificación</th>
+                <th>Código Moneda</th>
+                <th>Moneda</th>
+                <th>Fecha Creacion</th>
+                <th>Fecha Modificacion</th>                
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tabla-body">
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
